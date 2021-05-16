@@ -42,7 +42,8 @@ const subList = [
 class Subject extends React.Component{
     render(){
         return(
-            <li key={this.props.id} selected={this.props.selected}>{this.props.title}</li>
+            <li key={this.props.id} selected={this.props.selected}>
+                {this.props.title}</li>
         );
     }
 }
