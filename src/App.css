@@ -1,38 +1,71 @@
-.App {
-  text-align: center;
+#root {
+  padding-left: 7rem;
+  padding-right: 7rem;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.header {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem;
+  margin-top: 1rem;
+}
+.header_logo {
+  box-shadow: 10px 5px 1px grey;
+}
+
+.navBar {
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: rgba(147, 149, 151);
+  box-shadow: 0px 5px 5px grey;
+  margin-bottom: 2rem;
+}
+
+.navBar > li {
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  text-align: center;
+  list-style: none;
+  margin-left: 20px;
+}
+.navBar > li:hover {
+  cursor: pointer;
+  color: rgba(245, 223, 77);
+}
+.navBar_search {
+  width: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.navBar_search_icon:hover {
+  cursor: pointer;
+}
+.navBar_search_icon {
+  width: 100%;
+  height: auto;
 }
 
-.App-link {
-  color: #61dafb;
+.contents {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.card {
+  margin: 1rem;
+}
+
+.card:hover {
+  color: red;
+}
+
+.card-body_botton {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
