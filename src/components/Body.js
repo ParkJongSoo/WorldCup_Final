@@ -1,6 +1,7 @@
 import React from 'react';
 import Nav from './Nav';
 import Contents from './Contents';
+import Game from './Game';
 
 class Body extends React.Component{
     constructor(props){
@@ -43,9 +44,11 @@ class Body extends React.Component{
                     subject : "연예인"
                  },
               ],
-            menu : ''
+            menu : '',
+            playing : false
         }
         this.handleList = this.handleList.bind(this)
+        this.startGame = this.startGame.bind(this)
     }
     handleList(e){
         console.log(this.state.menu)
@@ -55,14 +58,27 @@ class Body extends React.Component{
     }
     startGame(e){
         console.log("game started");
+        this.setState({
+            playing : true
+        })
     }
+    
     render(){
-        return(
-            <div className="body">
-                <Nav subList={this.state.subList} handleList={this.handleList}/>
-                <Contents content={this.state.content} menu={this.state.menu} startGame={this.startGame}/>
-            </div>
-        );
+        if(this.state.playing === false){
+            return(
+                <div className="body">
+                    <Nav subList={this.state.subList} handleList={this.handleList}/>
+                    <Contents content={this.state.content} menu={this.state.menu} startGame={this.startGame}/>
+                </div>
+            );
+        }else if(this.state.playing === true){
+            return(
+                <div className="body">
+                    <Nav subList={this.state.subList} handleList={this.handleList}/>
+                    <Game />
+                </div>
+            )
+        }
     }
 }
 

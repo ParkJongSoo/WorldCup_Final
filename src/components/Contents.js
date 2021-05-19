@@ -13,6 +13,7 @@ class Contents extends React.Component{
             <div className="contents">
                 {
                     this.props.content.map(c => {
+                        //if(c.subject === this.state.menu){
                             return(
                                 <Content
                                     key={c.id}
@@ -23,6 +24,7 @@ class Contents extends React.Component{
                                     startGame={this.props.startGame}
                                     />
                                 );
+                            //}
                         })
                 }
             </div>
