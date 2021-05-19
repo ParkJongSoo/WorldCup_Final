@@ -1,17 +1,26 @@
 import React from 'react';
 
 class Nav extends React.Component{
+    constructor(props){
+        super(props);
+        this.state={
+            subList : this.props.subList
+        }
+    }
+    
     render(){
         return(
             <div>
                 <ul className="navBar">
                     <Search/>
-                    {subList.map(x => {
+                    {this.state.subList.map(x => {
                         return(
                             <Subject
                                 id={x.id}
                                 selected={x.selected}
-                                title={x.title}/>
+                                title={x.title}
+                                handleList={this.props.handleList}
+                                />
                         );
                     })}
                 </ul>
@@ -31,19 +40,26 @@ class Search extends React.Component{
     }
 }
 
-const subList = [
-    {id : 1, selected : true, title : "음식"},
-    {id : 2, selected : false, title : "영화"},
-    {id : 3, selected : false, title : "동물"},
-    {id : 4, selected : false, title : "연예인"},
-]
-
 //음식, 영화 등의 주제
 class Subject extends React.Component{
+    constructor(props){
+        super(props);
+        this.state = {
+            id : this.props.title,
+            selected : this.props.selected,
+            title : this.props.title
+        }
+    }
+
     render(){
         return(
-            <li key={this.props.id} selected={this.props.selected}>
-                {this.props.title}</li>
+            <li 
+            key={this.state.id}
+            selected={this.state.selected}
+            title={this.state.title}
+            onClick={this.props.handleList}>
+                {this.props.title}
+            </li>
         );
     }
 }
