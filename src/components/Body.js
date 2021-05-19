@@ -53,14 +53,14 @@ class Body extends React.Component{
             menu : e.target.title
         })
     }
-    startGame(){
+    startGame(e){
         console.log("game started");
     }
     render(){
         return(
             <div className="body">
                 <Nav subList={this.state.subList} handleList={this.handleList}/>
-                <Contents content={this.state.content} menu={this.state.menu}/>
+                <Contents content={this.state.content} menu={this.state.menu} startGame={this.startGame}/>
             </div>
         );
     }

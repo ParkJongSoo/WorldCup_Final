@@ -19,7 +19,9 @@ class Contents extends React.Component{
                                     id={c.id}
                                     thumbnail={c.thumbnail}
                                     thumbnail_alt={c.thumbnail_alt}
-                                    title={c.title}/>
+                                    title={c.title}
+                                    startGame={this.props.startGame}
+                                    />
                                 );
                         })
                 }
@@ -37,7 +39,7 @@ class Content extends React.Component{
                 <div className="card-body">
                     <p className="card-text">{this.props.title}</p>
                     <div className="card-body_botton">
-                        <button class="btn btn-success" type="submit">시작하기</button>
+                        <button class="btn btn-success" type="submit" onClick={this.props.startGame}>시작하기</button>
                         <button class="btn btn-primary" type="submit">공유하기</button>
                     </div>
                 </div>
