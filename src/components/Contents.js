@@ -1,51 +1,44 @@
-import React from 'react';
+import React, { useState, useEffect, createContext } from 'react';
+import Game from './Game';
 
-class Contents extends React.Component{
-    constructor(props){
-        super(props);
-        this.state = {
-            subject : this.props.subject,
-            menu : this.props.menu
-        }
+const Contents = ({subject, contentsData}) => {
+    const [mode, setMode] = useState("list")
+    const [gameData, setGameData] = useState()
+    const filteredContentsData = contentsData.filter(e => e !== undefined);
+    console.log(filteredContentsData)
+
+    const startGame = (content) =>{//game모드로 변경 후 게임 데이터 state 업데이트
+        setMode("game");
+        var temp = filteredContentsData.map(c => {
+            if(c.id === content.id){
+                return c;
+            }
+        })
+        temp = temp.filter(e => e != undefined)
+        setGameData(temp[0])
     }
-    render(){
+    console.log(gameData);
+    if(mode === "list"){
         return(
             <div className="contents">
-                {
-                    this.props.content.map(c => {
-                        //if(c.subject === this.state.menu){
-                            return(
-                                <Content
-                                    key={c.id}
-                                    id={c.id}
-                                    thumbnail={c.thumbnail}
-                                    thumbnail_alt={c.thumbnail_alt}
-                                    title={c.title}
-                                    startGame={this.props.startGame}
-                                    />
-                                );
-                            //}
-                        })
-                }
+            {filteredContentsData.map(c => 
+                    <div className="card" style={{width: "18rem"}} key={c.id}>
+                        <img src={c.item[0].img} className="card-img-top" alt="card image"/>
+                        <div className="card-body">
+                            <p className="card-text">{c.title}</p>
+                            <div className="card-body_botton">
+                                <button className="btn btn-success" type="submit" onClick={() => startGame(c)}>시작하기</button>
+                                <button className="btn btn-primary" type="submit">공유하기</button>
+                            </div>
+                        </div>
+                    </div>
+                    )}
             </div>
         );
-    }
-}
-
-
-class Content extends React.Component{
-    render(){
+    }else if(mode === "game"){
+        console.log(gameData)
         return(
-            <div id={this.props.id} className="card" style={{width: "18rem"}}>
-                <img src={this.props.thumbnail} className="card-img-top" alt={this.props.thumbnail_alt}/>
-                <div className="card-body">
-                    <p className="card-text">{this.props.title}</p>
-                    <div className="card-body_botton">
-                        <button class="btn btn-success" type="submit" onClick={this.props.startGame}>시작하기</button>
-                        <button class="btn btn-primary" type="submit">공유하기</button>
-                    </div>
-                </div>
-            </div>
+            <Game gameData={gameData}/>
         );
     }
 }

@@ -1,0 +1,10 @@
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem;
+  margin-top: 1rem;
+}
+.header_logo {
+  box-shadow: 10px 5px 1px grey;
+}

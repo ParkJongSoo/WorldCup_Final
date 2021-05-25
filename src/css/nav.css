@@ -1,0 +1,36 @@
+.navBar {
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: rgba(147, 149, 151);
+  box-shadow: 0px 5px 5px grey;
+  margin-bottom: 2rem;
+}
+
+.navBar_sub {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  list-style: none;
+  margin-left: 20px;
+}
+.navBar_sub:hover {
+  cursor: pointer;
+  color: rgba(245, 223, 77);
+}
+.navBar_search {
+  width: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.navBar_search:hover {
+  cursor: pointer;
+  transform: scale(1.3, 1.3);
+}
+.navBar_search_icon {
+  width: 100%;
+  height: auto;
+}
