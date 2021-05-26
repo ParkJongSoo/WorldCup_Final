@@ -1,39 +1,67 @@
 .game {
   width: 100%;
-  background-color: yellow;
 }
 
 .game_title {
   position: absolute;
   z-index: 2;
+  top: 12.35rem;
   left: 50%;
+  width: 100%;
   transform: translateX(-50%);
   background-color: #fff;
-  padding: 0px 30px;
+  height: 6rem;
+  padding: 20px 30px;
   text-transform: uppercase;
   padding-bottom: 10px;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 600;
+  word-spacing: 0.4rem;
+}
+
+.game_roundSet {
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 600;
 }
 
 .game_board {
   margin-top: 3rem;
   display: flex;
   flex-wrap: wrap;
-  height: 100vh;
+  justify-content: center;
+  align-items: center;
 }
-.game_left,
-.game_right {
+
+.game_list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   width: 50%;
 }
-
-.game_left_img,
-.game_right_img {
-  width: 100%;
-}
-
-.game_left {
-  background-color: red;
-}
-
-.game_list:hover {
+.game_list_img {
+  width: 50%;
+  height: auto;
+  overflow: hidden;
+  margin: 0 auto;
+  transition: 0.5s;
   cursor: pointer;
+  background-color: gray;
+}
+.game_list_img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.game_list_img:hover {
+  transform: scale(1.1);
+  opacity: 0.8;
+}
+
+.game_list_name {
+  margin-top: 1rem;
+  font-size: 1.1rem;
+  font-weight: 600;
 }
