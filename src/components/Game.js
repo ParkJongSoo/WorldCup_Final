@@ -1,33 +1,47 @@
 import React, {useState, useEffect} from 'react';
 
 const Game = ({gameData}) =>{
-    
-
+    const [lists, setLists] = useState([])
+    const [displays, setDisplays] = useState([]);
     const items = gameData.item;
+    var roundCount = 0;
+    //해야할 일 -> 게임 기능 구현 -> 선택 후 다음 이미지 렌더링
+    
+    useEffect(() => {
+        items.sort(() => Math.random() - 0.5);
+        setLists(items);
+        setDisplays([items[0],items[1]]);
+    },[]);
 
-    console.log(items);
-
+    const chooseList = (list) =>{
+        displays.map(d => {
+            if(d.id === list.id){
+                d.count += 1;
+            }else if (d.id !== list.id){
+                d.count -= 1;
+            }
+        })
+        items = items.filter(i => i.count === roundCount)
+        setLists(items);
+        console.log(items);
+    }
     return(
     <div className="contents">
             <div className="game">
                 <div className="game_title">{gameData.title}</div>
                 <div className="game_board">
-                    <div className="game_left">
-                        <div className="game_left_img">
-                            <img src={gameData.item[0].img} alt="left-image"/>
-                        </div>
-                        <div className="game_left_name">
-                            {gameData.item[0].name}
-                        </div>
-                    </div>
-                    <div className="game_right">
-                        <div className="game_right_img">
-                            <img src={gameData.item[1].img} alt="right-image"/>
-                        </div>
-                        <div className="game_right_name">
-                            {gameData.item[1].name}
-                        </div>
-                    </div>
+                    {displays.map(d => {
+                        return(
+                            <div className="game_list" key={d.name} onClick={() => chooseList(d)}>
+                                <div className="game_list_img">
+                                    <img src={d.img} alt="left-image"/>
+                                </div>
+                                <div className="game_list_name">
+                                    {d.name}
+                                </div>
+                            </div>
+                        );
+                    })}
                 </div>
             </div>        
         </div>  

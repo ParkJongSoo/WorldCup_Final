@@ -33,3 +33,7 @@
 .game_left {
   background-color: red;
 }
+
+.game_list:hover {
+  cursor: pointer;
+}
