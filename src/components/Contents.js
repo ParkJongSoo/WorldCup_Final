@@ -22,13 +22,12 @@ const Contents = ({subject, contentsData}) => {
         return(
             <div className="contents">
             {filteredContentsData.map(c => 
-                    <div className="card" style={{width: "18rem"}} key={c.id}>
+                    <div className="card" key={c.id}>
                         <img src={c.item[0].img} className="card-img-top" alt="card image"/>
                         <div className="card-body">
                             <p className="card-text">{c.title}</p>
                             <div className="card-body_botton">
                                 <button className="btn btn-success" type="submit" onClick={() => startGame(c)}>시작하기</button>
-                                <button className="btn btn-primary" type="submit">공유하기</button>
                             </div>
                         </div>
                     </div>

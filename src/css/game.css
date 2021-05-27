@@ -57,8 +57,7 @@
   object-fit: cover;
 }
 .game_list_img:hover {
-  transform: translate(0, 20%);
-  transform: scale(1.2);
+  transform: translate(0, -5%);
   filter: none;
 }
 

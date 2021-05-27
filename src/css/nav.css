@@ -9,6 +9,8 @@
 }
 
 .navBar_sub {
+  width: 4rem;
+  height: 2rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -17,8 +19,10 @@
   margin-left: 20px;
 }
 .navBar_sub:hover {
+  background-color: rgb(59, 59, 59);
+  border-radius: 50% 30% 0 30%;
+  color: rgb(255, 255, 255);
   cursor: pointer;
-  color: rgba(245, 223, 77);
 }
 .navBar_search {
   width: 2rem;

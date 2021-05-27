@@ -1,19 +1,28 @@
 .contents {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-around;
   flex-wrap: wrap;
 }
 .card {
-  margin: 1rem;
+  width: 18rem;
+  transition: 0.5s;
 }
 
 .card:hover {
-  color: red;
+  background-color: rgba(245, 223, 77);
+  border-radius: 0 0 10% 10%;
+  transform: scale(1.01);
 }
 
 .card-body_botton {
   display: flex;
   justify-content: space-around;
   align-items: center;
+}
+
+.card-text {
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-align: center;
 }
